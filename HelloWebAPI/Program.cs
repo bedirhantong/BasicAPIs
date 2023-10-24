@@ -14,9 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
-// uygulamadan swaggeri arayüzü ile kullanmasını istedik
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    // uygulamadan swaggeri arayüzü ile kullanmasını istedik
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 
 app.MapControllers();
 
