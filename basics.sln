@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hello_world_api_ui", "hello_world_api_ui\hello_world_api_ui.csproj", "{2A9352D5-80FD-43A4-AC50-95A74A425895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hello_world_api_ui", "hello_world_api_ui\hello_world_api_ui.csproj", "{2A9352D5-80FD-43A4-AC50-95A74A425895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebAPI", "HelloWebAPI\HelloWebAPI.csproj", "{1F720365-0C1A-465A-972D-1AD0C4589654}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWebAPI", "HelloWebAPI\HelloWebAPI.csproj", "{1F720365-0C1A-465A-972D-1AD0C4589654}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp", "ProductApp\ProductApp.csproj", "{FFCB0686-40AE-42FA-B714-86E54EFE3A36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApp", "ProductApp\ProductApp.csproj", "{FFCB0686-40AE-42FA-B714-86E54EFE3A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookDemo", "BookDemo\BookDemo.csproj", "{834749F6-B3CA-4C4F-BDE6-8035FBC56044}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{FFCB0686-40AE-42FA-B714-86E54EFE3A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFCB0686-40AE-42FA-B714-86E54EFE3A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFCB0686-40AE-42FA-B714-86E54EFE3A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834749F6-B3CA-4C4F-BDE6-8035FBC56044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834749F6-B3CA-4C4F-BDE6-8035FBC56044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834749F6-B3CA-4C4F-BDE6-8035FBC56044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834749F6-B3CA-4C4F-BDE6-8035FBC56044}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
