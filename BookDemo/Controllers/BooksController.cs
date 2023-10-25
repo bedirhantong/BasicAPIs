@@ -54,25 +54,33 @@ namespace BookDemo.Controllers
             }
         }
 
-        [HttpPut("{int:id}")]
-        public IActionResult ChangeBook([FromRoute(Name="id")] int id,[FromBody]Book book)
-        {
-            try
-            {
-                if (book is null)
-                {
-                    return BadRequest(); // 400 
-                }
 
-                ApplicationContext.Books.
-                    Where(b => b.Equals(book).;
-                return StatusCode(201, book);
-            }
-            catch (Exception ex)
+        // Id URI üzerinden yani endpointten geleceği için böyle yaptık.
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateOneBook([FromRoute(Name="id")] int id,
+            [FromBody]Book book)
+        {
+            // kitap listede var mı yok mu?
+            var entity = ApplicationContext.Books.Find(b => b.Id.Equals(id));
+            if (entity is null)
             {
-                return BadRequest(ex.Message);
+                return NotFound(); // 404
             }
+
+            // id ile parametre book id eşleşmiyorsa!
+            if (id != book.Id)
+            {
+                return BadRequest("Given id and the book id does not match!"); // 400
+            }
+
+            ApplicationContext.Books.Remove(entity);
+            // her ihtimale karşı id değerlerini eşitleyelim
+            book.Id = entity.Id;
+            ApplicationContext.Books.Add(book);
+
+            return Ok(book);
         }
+
 
 
     }
