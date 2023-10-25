@@ -1,6 +1,7 @@
 ﻿using BookDemo.Data;
 using BookDemo.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookDemo.Controllers
@@ -35,6 +36,9 @@ namespace BookDemo.Controllers
             return Ok(book);
         }
 
+
+
+
         [HttpPost]
         public IActionResult CreateBook([FromBody()] Book book)
         {
@@ -53,6 +57,8 @@ namespace BookDemo.Controllers
                  return BadRequest(ex.Message);
             }
         }
+
+           
 
 
         // Id URI üzerinden yani endpointten geleceği için böyle yaptık.
@@ -82,6 +88,9 @@ namespace BookDemo.Controllers
         }
 
 
+
+
+
         [HttpDelete("{id:int}")]
         public IActionResult DeleteOneBook([FromRoute(Name = "id")]int id) {
             // kitap listede var mı yok mu?
@@ -107,6 +116,22 @@ namespace BookDemo.Controllers
             return NoContent();
         }
 
+
+
+
+        [HttpPatch("{id:int}")]
+        public IActionResult PartiallyUpdateOneBook([FromRoute(Name = "id")] int id,
+            [FromBody] JsonPatchDocument<Book> bookPatch)
+        {
+            // check existance
+            var entity = ApplicationContext.Books.Find(b => b.Id.Equals(id));
+            if(entity is null) {
+                return NotFound(); // 404 
+            }
+
+            bookPatch.ApplyTo(entity);
+            return NoContent(); //204
+        }
 
 
     }
